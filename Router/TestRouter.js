@@ -5,6 +5,7 @@ const protect = require('../Middlewares/Token')
 const bookcrud=require("../Controler/BookCrud")
 const clientcrud=require('../Controler/ClientCrud')
 const customercrud=require("../Controler/CustomerCrud")
+const TeamCrud=require('../Controler/TeamMemberCrud')
 
 
 const router=express.Router()
@@ -39,7 +40,13 @@ router.route("/updatecustomer/:id").put(customercrud.UpdateCustomer)
 router.route("/deletecustomer/:id").delete(customercrud.DeleteCustomer)
 router.route("/defaultcustomerform/:id").post(customercrud.defaultformCustomer)
 
-
+//Team Routes
+router.route('/createteam').post(TeamCrud.CreateTeamMember)
+router.route('/getteam').get(TeamCrud.GetTeam)
+router.route('/viewteam/:id').post(TeamCrud.ViewTeam)
+router.route('/updateteam/:id').put(TeamCrud.UpdateTeam)
+router.route('/deleteteam/:id').delete(TeamCrud.DeleteTeam)
+router.route('/default/:id').post(TeamCrud.defaultteamform)
 
 
 
