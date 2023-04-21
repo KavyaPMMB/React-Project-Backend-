@@ -3,7 +3,7 @@ const mongoose=require('mongoose')
 const TeamMemberSchema=mongoose.Schema({
     Name:{type:String},
     Email:{type:String},
-    DateOfBirth:{type:Date},
+    DateOfBirth:{type:String},
     Gender:{type:Boolean},
     Description:{type:String},
     Role:{type:String},

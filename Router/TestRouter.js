@@ -6,6 +6,8 @@ const bookcrud=require("../Controler/BookCrud")
 const clientcrud=require('../Controler/ClientCrud')
 const customercrud=require("../Controler/CustomerCrud")
 const TeamCrud=require('../Controler/TeamMemberCrud')
+const OrderCrud=require("../Controler/OrderCrud")
+const cart=require('../Controler/BookCart')
 
 
 const router=express.Router()
@@ -47,6 +49,21 @@ router.route('/viewteam/:id').post(TeamCrud.ViewTeam)
 router.route('/updateteam/:id').put(TeamCrud.UpdateTeam)
 router.route('/deleteteam/:id').delete(TeamCrud.DeleteTeam)
 router.route('/default/:id').post(TeamCrud.defaultteamform)
+
+
+//Order Routes
+router.route('/createorder').post(OrderCrud.createorder)
+router.route('/getorder').get(OrderCrud.GetOrder)
+router.route('/updateorder/:id').put(OrderCrud.UpdateOrder)
+router.route('/deleteorder/:id').delete(OrderCrud.DeleteOrder)
+router.route('/defaultorder/:id').post(OrderCrud.defaultformOrder)
+
+//Cart
+
+router.route('/cart/:id').post(cart.AddToCart)
+
+
+
 
 
 
